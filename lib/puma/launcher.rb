@@ -127,10 +127,6 @@ module Puma
       return unless path
 
       File.open(path, 'w') { |f| f.puts Process.pid }
-      cur = Process.pid
-      at_exit do
-        delete_pidfile if cur == Process.pid
-      end
     end
 
     # Begin async shutdown of the server
